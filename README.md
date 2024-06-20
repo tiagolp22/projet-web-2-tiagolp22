@@ -1,66 +1,242 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# QuebeCar 🚙
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Empowering Car Buying and Selling with Cutting-Edge Technology
 
-## About Laravel
+QuebeCar is an innovative bilingual (English and French) car sales agency project built using Laravel, MySQL, React, and the best tools on the market. The project follows Agile methodologies with sprints and utilizes GitHub for version control and Figma for design. We implement privilege management, CRUD operations, and Eloquent ORM for database management, along with cutting-edge features to enhance the user experience.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Project Highlights:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Robust Technology:** Laravel, MySQL, and Eloquent ensure a reliable and scalable backend.
+- **User-Friendly Interface:** React provides an intuitive and responsive user experience.
+- **Efficient Media Management:** Cloudinary facilitates uploading, storing, and organizing images and videos.
+- **Secure Payments:** Stripe guarantees safe and reliable transactions for your customers.
+- **Multilingual Support:** i18next allows you to offer a personalized experience in English and French.
+- **Rigorous Testing:** Jest ensures code quality and reliability.
+- **PDF Payment Receipts:** pdfkit generates professional and personalized receipts for your customers.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Table of Contents:
 
-## Learning Laravel
+- [Description](#description)
+- [Technologies](#technologies)
+- [Team](#team)
+- [Setup](#setup)
+- [Running the Project](#running-the-project)
+- [Contributing](#contributing)
+- [License](#license)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Description
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+QuebeCar is designed to streamline the process of buying and selling cars, providing a seamless experience for users. The application supports uploading and managing media, secure payment processing, and generating professional PDF receipts.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Technologies:
 
-## Laravel Sponsors
+### Backend:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Laravel
+- MySQL
+- Eloquent ORM
+- Cloudinary
 
-### Premium Partners
+### Frontend:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+- React
 
-## Contributing
+### Version Control:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- GitHub
 
-## Code of Conduct
+### Design:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Figma
 
-## Security Vulnerabilities
+### Project Management:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Agile (Backlog and Sprints)
 
-## License
+## Team:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Frontend:
+
+- Maleck Cheour
+- Matheus Lopes
+
+### Backend:
+
+- Tiago Barros
+- Yasmin Rodrigues (Product Owner)
+
+### Roles:
+
+- **GitHub Management:**
+  - Initially Tiago, rotating each sprint.
+- **Product Owner (P.O.):**
+  - Initially Yasmin, rotating each sprint.
+
+## Setup:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/tiagolp22/QuebeCar
+   cd quebecar
+   ```
+
+## Setup:
+
+1. _Clone the Repository:_
+   ```bash
+   git clone https://github.com/tiagolp22/QuebeCar
+   cd quebecar
+
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+    ```
+3. _Configure the database:_
+   -Follow the instructions in the db/config.js file.
+
+## Running the Project:
+
+1. _Start the backend server:_
+     ```bash
+   php artisan serve
+     ```
+2. **Start the frontend server:**
+     ```bash
+   npm start
+   ```
+3. _Access the application at http://localhost:3000_
+
+## Contributing:
+
+1. Read the contribution guidelines in CONTRIBUTING.md.
+2. Fork the repository and make your changes.
+3. Submit a pull request to the main repository.
+
+## License:
+
+- This project is licensed under the MIT license.
+
+##
+
+# QuebeCar 🚙
+
+Facilitez l'achat et la vente de voitures avec une technologie de pointe
+
+QuebeCar est un projet innovant d'agence de vente de voitures bilingue (anglais et français), construit avec Laravel, MySQL, React, et les meilleurs outils du marché. Le projet suit les méthodologies Agile avec des sprints et utilise GitHub pour le contrôle de version ainsi que Figma pour le design. Nous implémentons la gestion des privilèges, les opérations CRUD, et Eloquent ORM pour la gestion de la base de données, avec des fonctionnalités de pointe pour améliorer l'expérience utilisateur.
+
+## Points Forts du Projet :
+
+- **Technologie Robuste :** Laravel, MySQL et Eloquent garantissent un backend fiable et évolutif.
+- **Interface Conviviale :** React offre une expérience utilisateur intuitive et responsive.
+- **Gestion Efficace des Médias :** Cloudinary facilite le téléchargement, le stockage et l'organisation d'images et de vidéos.
+- **Paiements Sécurisés :** Stripe assure des transactions sûres et fiables pour vos clients.
+- **Support Multilingue :** i18next vous permet d'offrir une expérience personnalisée en anglais et en français.
+- **Tests Rigoureux :** Jest garantit la qualité et la fiabilité du code.
+- **Reçus de Paiement au Format PDF :** pdfkit génère des reçus professionnels et personnalisés pour vos clients.
+
+## Table des Matières :
+
+- [Description](#description)
+- [Technologies](#technologies)
+- [Équipe](#équipe)
+- [Configuration](#configuration)
+- [Exécution du Projet](#exécution-du-projet)
+- [Contributions](#contributions)
+- [Licence](#licence)
+
+---
+
+## Description
+
+QuebeCar est conçu pour simplifier le processus d'achat et de vente de voitures, en offrant une expérience fluide aux utilisateurs. L'application prend en charge le téléchargement et la gestion des médias, le traitement sécurisé des paiements, ainsi que la génération de reçus PDF professionnels.
+
+---
+
+## Technologies :
+
+### Backend :
+
+- Laravel
+- MySQL
+- Eloquent ORM
+- Cloudinary
+
+### Frontend :
+
+- React
+
+### Contrôle de Version :
+
+- GitHub
+
+### Design :
+
+- Figma
+
+### Gestion de Projet :
+
+- Agile (Backlog et Sprints)
+
+---
+
+## Équipe:
+
+### Frontend :
+
+- Maleck Cheour
+- Matheus Lopes
+
+### Backend :
+
+- Tiago Barros
+- Yasmin Rodrigues (Product Owner)
+
+### Rôles :
+
+- **Gestion GitHub :**
+  - Initialement Tiago, rotation à chaque sprint.
+- **Product Owner (P.O.) :**
+  - Initialement Yasmin, rotation à chaque sprint.
+
+---
+
+## Configuration:
+
+1. **Cloner le Dépôt :**
+   ```bash
+   git clone https://github.com/tiagolp22/QuebeCar
+   cd quebecar
+   ```
+2. **Installer les Dépendances:**
+   ```bash
+   npm install
+    ```
+3. _Configurer la Base de Données:_
+   -Suivre les instructions dans le fichier db/config.js..
+
+## Exécution du Projet:
+
+1. _Démarrer le Serveur Backend :_
+     ```bash
+   php artisan serve
+      ```
+2. **Démarrer le Serveur Frontend:**
+     ```bash
+   npm start
+   ```
+
+3. _Accéder à l'application sur http://localhost:3000_
+
+## Contributions:
+
+1. Lire les directives de contribution dans CONTRIBUTING.md.
+2. Forker le dépôt et apporter vos modifications.
+3. Soumettre une pull request vers le dépôt principal.
+
+## Licence:
+
+- Ce projet est sous licence MIT.
+
+##
