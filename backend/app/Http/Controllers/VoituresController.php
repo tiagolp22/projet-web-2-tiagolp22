@@ -4,30 +4,34 @@ namespace App\Http\Controllers;
 
 use App\Models\Voiture;
 use Illuminate\Http\Request;
-
-class VoitureController extends Controller
+use Inertia\Inertia;
+class VoituresController extends Controller
 {
     public function index()
     {
-        $voitures = Voiture::all(); 
-        return response()->json($voitures);
-    }
-
+        $voitures = Voiture::all();
+        return Inertia::render('Home', [
+            'voitures' => $voitures,
+        ]);
+    } 
     public function store(Request $request)
     {
-        $validated = $request->validated(); //tableau contenant les champs validés
+        //dd('dans function store');
+        $validated = $request->validated(); 
         $voiture = Voiture::create($validated);
         return response()->json($voiture, 201);
     }
 
     public function show($id)
     {
+        //dd('dans function show :) ' . $id);
         $voiture = Voiture::findOrFail($id);
         return response()->json($voiture);
     }
 
     public function update(Request $request, $id)
     {     
+        //dd('dans function update');
         $validated = $request->validated(); 
         $voiture = Voiture::findOrFail($id);
         $voiture->update($validated);
