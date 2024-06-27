@@ -1,9 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\VoituresController;
+use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\UtilisateurController;
 
 
-Route::get('/', [VoituresController::class, 'index'])->name('Accueil');
-Route::resource('/voitures', VoituresController::class);
+Route::get('/', [VoitureController::class, 'index'])->name('Accueil');
+Route::resource('/voitures', VoitureController::class);
 Route::resource('/utilisateurs', UtilisateurController::class);
