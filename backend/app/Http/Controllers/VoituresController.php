@@ -35,15 +35,12 @@ class VoituresController extends Controller
         $validated = $request->validated(); 
         $voiture = Voiture::findOrFail($id);
         $voiture->update($validated);
-
         return response()->json($voiture, 200);
     }
-
     public function destroy($id)
     {
         $voiture = Voiture::findOrFail($id);
         $voiture->delete();
-
         return response()->json(null, 204);
     }
 }
