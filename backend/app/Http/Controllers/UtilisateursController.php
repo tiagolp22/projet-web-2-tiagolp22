@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Utilisateur;
 use Illuminate\Support\Facades\Hash;
 
-class UtilisateurController extends Controller
+class UtilisateursController extends Controller
 {
     public function index()
     {
