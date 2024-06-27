@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Voiture;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-class VoituresController extends Controller
+class VoitureController extends Controller
 {
     public function index()
     {
