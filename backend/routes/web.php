@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\AuthController;
+
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 
 /*
@@ -13,6 +15,8 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 */
 // Route public vers la page d'accueil
 Route::get('/', [VoitureController::class, 'index'])->name('Accueil');
+Route::post('/login', [AuthController::class, 'userLogin'])->name('login');
+
 
 // Routes authentifiés
 Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->group(function () {
