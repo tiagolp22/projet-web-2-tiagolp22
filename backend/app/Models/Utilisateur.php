@@ -9,14 +9,28 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Utilisateur extends Authenticatable
 {
-
-    use HasFactory;
-
-    protected $table = 'utilisateurs';
-    protected $primaryKey = 'id_utilisateur';
-    public $timestamps = false;
-
     use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'utilisateurs';
+
+    /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'id_utilisateur';
+
+    /**
+     * Indicates if the IDs are auto-incrementing.
+     *
+     * @var bool
+     */
+    public $incrementing = true;
 
     /**
      * The attributes that are mass assignable.
@@ -36,7 +50,7 @@ class Utilisateur extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'mot_de_passe',
         'remember_token',
     ];
 
@@ -46,6 +60,23 @@ class Utilisateur extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'date_naissance' => 'date',
+        'derniere_connexion' => 'datetime',
     ];
+
+    /**
+     * Get the privileges that belong to the user.
+     */
+    public function privilege()
+    {
+        return $this->belongsTo(Privilege::class, 'privileges_id');
+    }
+
+    /**
+     * Get the city that belongs to the user.
+     */
+    public function city()
+    {
+        return $this->belongsTo(Ville::class, 'villes_id_ville');
+    }
 }
