@@ -9,7 +9,7 @@ function Header() {
       <div className="wrapper">
         <div className="header-content">
           <InertiaLink href="/" className="logo">
-            <img src="../../../img/logo/logo.png" alt="QuebeCar" srcset="" />
+            <img src="../../img/logo/logo.png" alt="QuebeCar" srcset="" />
           </InertiaLink>
           <nav className="nav-links">
             <InertiaLink href="/" className="nav-link">Accueil</InertiaLink>

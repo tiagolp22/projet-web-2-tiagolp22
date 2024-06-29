@@ -72,3 +72,26 @@
   .dropdown-content a:hover {
     background-color: #f1f1f1;
   }
+  /* Estilos para tablets */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    
+  }
+
+  .nav-links {
+   
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link {
+    margin: var(--space-small) 0;
+  }
+
+  .dropdown-button {
+    margin: var(--space-small) 0;
+  }
+}
+
