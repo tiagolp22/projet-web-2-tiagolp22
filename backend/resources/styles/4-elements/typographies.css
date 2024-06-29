@@ -1,0 +1,39 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a {
+    color: var(--color-primary);
+}
+
+
+h1 {
+    font-size: max(50px, 6vw);
+    font-weight: 100;
+    letter-spacing: .03em;
+}
+
+h2 {
+    font-size: max(32px, 3.25vw);
+    font-weight: 200;
+    letter-spacing: .01em;
+    letter-spacing: .015em;
+}
+
+h3 {
+    font-size: max(22px, 2.5vw);
+    font-weight: 100;
+}
+
+p {
+    letter-spacing: .02em;
+    line-height: 1.6;
+}
+
+small {
+    font-weight: 300;
+    font-size: .5em;
+    white-space: nowrap;
+}
