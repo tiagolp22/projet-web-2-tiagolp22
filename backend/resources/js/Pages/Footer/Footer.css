@@ -1,0 +1,43 @@
+footer {
+    background-color: var(--color-white);
+    color: var(--color-white);
+    font-family: var(--font-primary);
+    padding:var(--space-small) 0;
+
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-items: center;
+    width: 100%;
+    
+  
+  }
+  
+  .footer-link {
+    margin: var(--space-xsmall) 0;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .footer-link:hover {
+    color: var(--color-tertiary);
+  }
+  
+  .footer-text {
+    padding: var(--space-small);
+    background-color: var(--color-primary);
+    margin-top: var(--space-medium);
+  }
+  
+  /* Estilos para tablets e dispositivos móveis */
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+  
+    .footer-column {
+      padding: var(--space-small);
+    }
+  }
