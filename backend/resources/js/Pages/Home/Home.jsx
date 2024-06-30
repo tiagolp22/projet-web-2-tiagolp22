@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { InertiaLink } from '@inertiajs/inertia-react';
 import './Home.css';
 import Header from '../Header/Header';
-
+import Footer from '../Footer/Footer';
 function Home() {
   const settings = {
     dots: true,
@@ -40,7 +40,6 @@ function Home() {
           <img src="../../../img/banner/banner.jpg" alt="banner" srcset="" />
           <div className="banner">
             <h1>Quebecar.</h1>
-            
             <InertiaLink href="/catalog" className="catalog-link">
               Ver Catálogo
             </InertiaLink>
@@ -68,6 +67,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
