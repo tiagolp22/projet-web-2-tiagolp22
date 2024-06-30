@@ -8,11 +8,11 @@
     --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
     --space-base: 5px;
-    --space-xsmall: max(calc(var(--space-base) * 3), 1.5vw);
-    --space-small: max(calc(var(--space-base) * 6), 3vw);
-    --space-medium: max(calc(var(--space-base) * 12), 6vw);
-    --space-medium-large: max(calc(var(--space-base) * 18), 9vw);
-    --space-large: max(calc(var(--space-base) * 24), 12vw);
-    --space-xlarge: max(calc(var(--space-base) * 30), 15vw);
+  --space-xsmall: max(calc(var(--space-base) * 2), 1vw);
+  --space-small: max(calc(var(--space-base) * 4), 2vw);
+  --space-medium: max(calc(var(--space-base) * 6), 3vw);
+  --space-medium-large: max(calc(var(--space-base) * 8), 4vw);
+  --space-large: max(calc(var(--space-base) * 10), 5vw);
+  --space-xlarge: max(calc(var(--space-base) * 12), 6vw);
 
 }

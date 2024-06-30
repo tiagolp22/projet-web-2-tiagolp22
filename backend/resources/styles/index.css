@@ -1,0 +1,20 @@
+/* SETTINGS */
+@import url(./1-settings/variables.css);
+
+/* TOOLS */
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+/* GENERIC */
+@import url(./3-generic/reset.css);
+
+/* ELEMENTS */
+@import url(./4-elements/typographies.css);
+
+/* OBJECTS */
+@import url(./5-objects/wrapper.css);
+
+/* COMPONENTS */
+
+/* UTILITIES */
+
