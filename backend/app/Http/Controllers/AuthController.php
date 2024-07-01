@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Inertia\Inertia;
 class AuthController extends Controller
 {
+    public function index()
+    {
+        return Inertia::render('Login');
+    } 
+    
     public function userLogin(Request $request)
     {
         

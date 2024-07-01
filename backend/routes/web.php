@@ -15,8 +15,10 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 */
 // Route public vers la page d'accueil
 Route::get('/', [VoitureController::class, 'index'])->name('Accueil');
-Route::post('/login', [AuthController::class, 'userLogin'])->name('login');
 
+//Route login
+Route::get('/login', [AuthController::class, 'index'])->name('login.index');
+Route::post('/login', [AuthController::class, 'userLogin'])->name('login.userLogin');
 
 // Routes authentifiés
 Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->group(function () {
