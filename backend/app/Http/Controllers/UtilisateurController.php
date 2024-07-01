@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Http\Requests\CreateUtilisateurRequest;
+use App\Http\Requests\UpdateUtilisateurRequest;
 use App\Models\Utilisateur;
 use Illuminate\Support\Facades\Hash;
 
@@ -11,57 +11,62 @@ class UtilisateurController extends Controller
 {
     public function index()
     {
-        return Utilisateur::all();
+        return inertia('Utilisateurs/Index', [
+            'utilisateurs' => Utilisateur::all()
+        ]);
+    }
+
+    public function create()
+    {
+        return inertia('Utilisateurs/Create');
+    }
+
+    public function store(CreateUtilisateurRequest $request)
+    {
+        $validated = $request->validated();
+
+        $utilisateur = new Utilisateur($validated);
+        $utilisateur->mot_de_passe = Hash::make($validated['mot_de_passe']);
+        $utilisateur->save();
+
+        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur créé avec succès.');
     }
 
     public function show($id)
     {
-        return Utilisateur::find($id);
-    }
-
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'nom' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:utilisateurs',
-            'mot_de_passe' => 'required|string|min:8',
-            'role' => 'required|string'
+        $utilisateur = Utilisateur::findOrFail($id);
+        return inertia('Utilisateurs/Show', [
+            'utilisateur' => $utilisateur
         ]);
-
-        $utilisateur = new Utilisateur();
-        $utilisateur->nom = $validated['nom'];
-        $utilisateur->email = $validated['email'];
-        $utilisateur->mot_de_passe = Hash::make($validated['mot_de_passe']);
-        $utilisateur->role = $validated['role'];
-        $utilisateur->save();
-
-        return response()->json($utilisateur, 201);
     }
 
-    public function update(Request $request, $id)
+    public function edit($id)
     {
         $utilisateur = Utilisateur::findOrFail($id);
-
-        $validated = $request->validate([
-            'nom' => 'sometimes|string|max:255',
-            'email' => 'sometimes|string|email|max:255|unique:utilisateurs,email,'.$utilisateur->id,
-            'mot_de_passe' => 'sometimes|string|min:8',
-            'role' => 'sometimes|string'
+        return inertia('Utilisateurs/Edit', [
+            'utilisateur' => $utilisateur
         ]);
+    }
 
-        if (isset($validated['mot_de_passe'])) {
-            $validated['mot_de_passe'] = Hash::make($validated['mot_de_passe']);
+    public function update(UpdateUtilisateurRequest $request, $id)
+    {
+        $validated = $request->validated();
+
+        $utilisateur = Utilisateur::findOrFail($id);
+        $utilisateur->fill($validated);
+        if ($request->filled('mot_de_passe')) {
+            $utilisateur->mot_de_passe = Hash::make($validated['mot_de_passe']);
         }
+        $utilisateur->save();
 
-        $utilisateur->update($validated);
-
-        return response()->json($utilisateur, 200);
+        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur mis à jour avec succès.');
     }
 
     public function destroy($id)
     {
-        Utilisateur::destroy($id);
-        return response()->json(null, 204);
+        $utilisateur = Utilisateur::findOrFail($id);
+        $utilisateur->delete();
+
+        return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur supprimé avec succès.');
     }
 }
-
