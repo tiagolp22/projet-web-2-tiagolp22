@@ -24,11 +24,11 @@ class UtilisateurController extends Controller
     public function store(CreateUtilisateurRequest $request)
     {
         $validated = $request->validated();
-
+    
         $utilisateur = new Utilisateur($validated);
         $utilisateur->mot_de_passe = Hash::make($validated['mot_de_passe']);
         $utilisateur->save();
-
+    
         return redirect()->route('utilisateurs.index')->with('success', 'Utilisateur créé avec succès.');
     }
 
