@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use App\Http\Requests\CreateUtilisateurRequest;
+
 class AuthController extends Controller
 {
     public function index()
@@ -14,13 +15,9 @@ class AuthController extends Controller
         return Inertia::render('Login');
     } 
 
-    
-
-
-//
     public function showRegistrationForm()
     {
-        return inertia('Auth/Register');
+        return inertia('Register');
     }
     
     public function register(CreateUtilisateurRequest $request)
@@ -32,10 +29,11 @@ class AuthController extends Controller
         $utilisateur = Utilisateur::create($validated);
 
         return Inertia::location(route('login.index'));
-    }   
+    }
     
-//    
-public function userLogin(Request $request)
+    
+   
+    public function userLogin(Request $request)
     {
 
         $request->validate([
@@ -55,37 +53,7 @@ public function userLogin(Request $request)
             return Inertia::location(route('Accueil'));
         } else {
             return Inertia::location(route('login.index'));
- }
-}
-
-        // Verifica se o usuário existe
-        $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
-
-        if (!$loginUser) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Email and Password do not match',
-                'data' => []
-            ]);
         }
+    }
 
-        // Verifica se a senha está correta
-        if (Hash::check($request->mot_de_passe, $loginUser->mot_de_passe)) {
-            // Cria um token para o usuário :)
-            $token = $loginUser->createToken('mytoken')->plainTextToken;
-
-            return response()->json([
-                'status' => true,
-                'message' => 'Utilisateur logged in',
-                'token' => $token,
-                'data' => []
-            ]);
-        } else {
-            return response()->json([
-                'status' => false,
-                'message' => 'Password Invalid',
-                'data' => []
-            ]);
- }
-}
 }
