@@ -2,8 +2,7 @@ footer {
     background-color: var(--color-white);
     color: var(--color-white);
     font-family: var(--font-primary);
-    padding:var(--space-small) 0;
-
+    padding: 0 6vw;
   }
 
   .footer-content {
