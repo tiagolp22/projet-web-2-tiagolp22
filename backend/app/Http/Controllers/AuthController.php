@@ -6,6 +6,7 @@ use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
+use App\Http\Requests\CreateUtilisateurRequest;
 class AuthController extends Controller
 {
     public function index()
@@ -17,25 +18,19 @@ class AuthController extends Controller
     {
         return inertia('Register');
     }
-
-    public function register(Request $request)
+    
+    public function register(CreateUtilisateurRequest $request)
     {
-        $validated = $request->validate([
-            'prenom' => 'required|string|max:255',
-            'nom' => 'required|string|max:255',
-            'courriel' => 'required|string|email|max:255|unique:utilisateurs',
-            'mot_de_passe' => 'required|string|min:8|confirmed',
-        ]);
+        $validated = $request->validated();
 
-        $utilisateur = Utilisateur::create([
-            'prenom' => $validated['prenom'],
-            'nom' => $validated['nom'],
-            'courriel' => $validated['courriel'],
-            'mot_de_passe' => Hash::make($validated['mot_de_passe']),
-        ]);
+        $validated['mot_de_passe'] = Hash::make($validated['mot_de_passe']);
 
-        return redirect()->route('login')->with('success', 'Votre compte a été créé avec succès. Veuillez vous connecter.');
+        $utilisateur = Utilisateur::create($validated);
+
+        return Inertia::location(route('login.index'));
     }
+    
+    
 //    
 public function userLogin(Request $request)
 {

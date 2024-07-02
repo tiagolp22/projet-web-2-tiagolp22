@@ -43,7 +43,7 @@ class Utilisateur extends Authenticatable
         'privileges_id', 'nom_utilisateur', 'mot_de_passe',
         'derniere_connexion', 'villes_id_ville'
     ];
-
+    public $timestamps = false;
     /**
      * The attributes that should be hidden for serialization.
      *
