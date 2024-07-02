@@ -74,12 +74,15 @@
   
   .dropdown-content a {
     display: block;
-    padding: var(--space-small);
+    
     color: var(--color-black); 
     text-decoration: none;
   }
   
-  .dropdown-content a:hover {
+  .dropdown-content a:hover  {
+    background-color: #f1f1f1;
+  }
+  .dropdown-content button:hover  {
     background-color: #f1f1f1;
   }
   .logo{
