@@ -10,7 +10,7 @@ class VoitureController extends Controller
     public function index()
     {
         $voitures = Voiture::all();
-        return Inertia::render('Home', [
+        return Inertia::render('Catalog', [
             'voitures' => $voitures,
         ]);
     } 
