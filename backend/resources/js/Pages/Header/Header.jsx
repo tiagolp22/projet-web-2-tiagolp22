@@ -28,7 +28,7 @@ function Header() {
                   <Link href="/register" className="nav-link">Inscription</Link>
                 </div>
               </div>
-              <Link href="/login"><img className="icones_navigation" src="../../img/icones/Canada.png" alt="" /></Link>
+              <Link href="/login"><img className="icones_navigation" src="../../img/icones/Canada.png" alt="Drapeua du canada" /></Link>
             </div>
           </nav>
         </div>
