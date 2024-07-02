@@ -6,21 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('commandes_has_taxes', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->foreignId('commandes_id_commande')->constrained('commandes', 'id_commande');
+            $table->foreignId('taxes_id')->constrained('taxes', 'id');
+            $table->primary(['commandes_id_commande', 'taxes_id']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('commandes_has_taxes');
     }
