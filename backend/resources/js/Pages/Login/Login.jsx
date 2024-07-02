@@ -6,13 +6,13 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [courriel, setEmail] = useState('');
+  const [mot_de_passe, setPassword] = useState('');
   const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Inertia.post('/login', { email, password }, {
+    Inertia.post('/login', { courriel, mot_de_passe }, {
       onError: (error) => {
         setErrors(error);
       },
@@ -31,20 +31,22 @@ function Login() {
               <input
                 type="email"
                 id="email"
-                value={email}
+                value={courriel}
+                name="courriel"
                 onChange={(e) => setEmail(e.target.value)}
               />
-              {errors.email && <span className="error-message">{errors.email}</span>}
+              {errors.courriel && <span className="error-message">{errors.courriel}</span>}
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
                 type="password"
                 id="password"
-                value={password}
+                name="mot_de_passe"
+                value={mot_de_passe}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {errors.password && <span className="error-message">{errors.password}</span>}
+              {errors.mot_de_passe && <span className="error-message">{errors.mot_de_passe}</span>}
             </div>
             <button type="submit" className="login-button">Login</button>
           </form>
