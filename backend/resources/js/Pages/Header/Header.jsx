@@ -31,7 +31,7 @@ function Header() {
                   <img className="icones_navigation" src="../../img/icones/Profil.png" alt="" />
                 </button>
                 <div className="dropdown-content">
-                <button onClick={openModal} className="nav-link">Connexion</button> {/* Alterado para button com onClick */}
+                <button onClick={openModal} className="dropdown-button nav-link"><a href="#">Connexion</a></button> 
                   <Link href="/register" className="nav-link">Inscription</Link>
                 </div>
               </div>

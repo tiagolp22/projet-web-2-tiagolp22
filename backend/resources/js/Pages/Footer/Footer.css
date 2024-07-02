@@ -27,7 +27,7 @@ footer {
   .footer-text {
     padding: var(--space-small) 6vw;
     background-color: var(--color-primary);
-    margin-top: var(--space-medium);
+    
   }
 
   /* Estilos para tablets e dispositivos móveis */
