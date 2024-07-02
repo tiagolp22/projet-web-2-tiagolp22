@@ -4,6 +4,7 @@ import { InertiaLink } from '@inertiajs/inertia-react';
 import './Home.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+
 function Home() {
   const settings = {
     dots: true,
@@ -36,32 +37,32 @@ function Home() {
       <Header />
       <div className="wrapper">
         <div className="container">
-          {/* Seção do Banner */}
-          <img src="../../../img/banner/banner.jpg" alt="banner" srcset="" />
+          {/* Section de la bannière */}
+          <img src="../../../img/banner/banner.jpg" alt="bannière" srcset="" />
           <div className="banner">
             <h1>Quebecar.</h1>
             <InertiaLink href="/catalog" className="catalog-link">
-              Ver Catálogo
+              Voir le catalogue
             </InertiaLink>
           </div>
-          {/* Seção do Carrossel */}
+          {/* Section du carrousel */}
           <div className="carousel">
-            <h2>Novidades</h2>
+            <h2>Nouveautés</h2>
             <Slider {...settings}>
               <div className="slide">
-                <img src="https://via.placeholder.com/150" alt="Car" />
-                <h3>Carro 1</h3>
-                <p>Descrição do carro 1.</p>
+                <img src="https://via.placeholder.com/150" alt="Voiture" />
+                <h3>Voiture 1</h3>
+                <p>Description de la voiture 1.</p>
               </div>
               <div className="slide">
-                <img src="https://via.placeholder.com/150" alt="Car" />
-                <h3>Carro 2</h3>
-                <p>Descrição do carro 2.</p>
+                <img src="https://via.placeholder.com/150" alt="Voiture" />
+                <h3>Voiture 2</h3>
+                <p>Description de la voiture 2.</p>
               </div>
               <div className="slide">
-                <img src="https://via.placeholder.com/150" alt="Car" />
-                <h3>Carro 3</h3>
-                <p>Descrição do carro 3.</p>
+                <img src="https://via.placeholder.com/150" alt="Voiture" />
+                <h3>Voiture 3</h3>
+                <p>Description de la voiture 3.</p>
               </div>
             </Slider>
           </div>
