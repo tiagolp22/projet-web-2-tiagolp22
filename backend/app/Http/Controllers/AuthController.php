@@ -13,10 +13,14 @@ class AuthController extends Controller
     {
         return Inertia::render('Login');
     } 
+
+    
+
+
 //
     public function showRegistrationForm()
     {
-        return inertia('Register');
+        return inertia('Auth/Register');
     }
     
     public function register(CreateUtilisateurRequest $request)
@@ -28,8 +32,7 @@ class AuthController extends Controller
         $utilisateur = Utilisateur::create($validated);
 
         return Inertia::location(route('login.index'));
-    }
-    
+    }   
     
 //    
 public function userLogin(Request $request)
@@ -55,4 +58,34 @@ public function userLogin(Request $request)
  }
 }
 
+        // Verifica se o usuário existe
+        $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
+
+        if (!$loginUser) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Email and Password do not match',
+                'data' => []
+            ]);
+        }
+
+        // Verifica se a senha está correta
+        if (Hash::check($request->mot_de_passe, $loginUser->mot_de_passe)) {
+            // Cria um token para o usuário :)
+            $token = $loginUser->createToken('mytoken')->plainTextToken;
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Utilisateur logged in',
+                'token' => $token,
+                'data' => []
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Password Invalid',
+                'data' => []
+            ]);
+ }
+}
 }

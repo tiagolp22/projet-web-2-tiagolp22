@@ -6,7 +6,6 @@ body {
     color: var(--color-black);
     font-family: var(--font-primary);
     margin: 0;
-    padding-bottom: 6vw;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }

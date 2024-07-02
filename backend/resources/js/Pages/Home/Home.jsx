@@ -40,14 +40,13 @@ function Home() {
           {/* Section de la bannière */}
           <img src="../../../img/banner/banner.jpg" alt="bannière" srcset="" />
           <div className="banner">
-            <h1>Quebecar.</h1>
             <InertiaLink href="/catalog" className="catalog-link">
               Voir le catalogue
             </InertiaLink>
           </div>
           {/* Section du carrousel */}
           <div className="carousel">
-            <h2>Nouveautés</h2>
+            <h2 className='Nouveautes'>Nouveautés</h2>
             <Slider {...settings}>
               <div className="slide">
                 <img src="https://via.placeholder.com/150" alt="Voiture" />

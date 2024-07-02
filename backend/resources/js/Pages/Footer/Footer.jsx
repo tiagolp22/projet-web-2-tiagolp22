@@ -7,7 +7,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-content">
          <div className="footer-column">
-             <img src="../../../img/logo/logo.png" alt="logo"  />
+             <img className='logo' src="../../../img/logo/logo.png" alt="logo"  />
         </div>
         <div className="footer-column">
           <h4>Rechercher</h4>
