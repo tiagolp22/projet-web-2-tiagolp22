@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import { Link } from '@inertiajs/react';
+import LoginModal from '../Login/LoginModal'; 
 
 function Header() {
+  const [showModal, setShowModal] = useState(false); // Estado para controlar a exibição do modal
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
   return (
     <header className="custom-header">
       <div className="wrapper">
@@ -21,13 +28,15 @@ function Header() {
                 Plus <span className="arrow-down">&#9660;</span>
               </button>
               <div className="dropdown-content">
-                <Link href="/login" className="nav-link">Connexion</Link>
+                <button onClick={openModal} className="nav-link">Connexion</button> 
                 <Link href="/register" className="nav-link">Inscription</Link>
               </div>
             </div>
           </nav>
         </div>
       </div>
+
+      {showModal && <LoginModal onClose={() => setShowModal(false)} />} {/* Renderiza o modal se showModal for true */}
     </header>
   );
 }
