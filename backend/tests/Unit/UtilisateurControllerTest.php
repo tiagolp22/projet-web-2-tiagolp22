@@ -18,6 +18,9 @@ class UtilisateurControllerTest extends TestCase
         $response = $this->get('/api/utilisateurs');
 
         $response->assertStatus(200);
+        $response->assertJsonStructure([
+            '*' => ['id', 'nom', 'email', 'role', 'created_at', 'updated_at']
+        ]);
         $this->assertCount(3, $response->json());
     }
 
@@ -58,6 +61,7 @@ class UtilisateurControllerTest extends TestCase
         $response = $this->putJson("/api/utilisateurs/{$user->id}", $updatedData);
 
         $response->assertStatus(200);
+        $response->assertJsonFragment(['nom' => 'Updated Name']);
         $this->assertDatabaseHas('utilisateurs', [
             'id' => $user->id,
             'nom' => 'Updated Name'
