@@ -5,45 +5,73 @@ namespace App\Http\Controllers;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-
+use Inertia\Inertia;
 class AuthController extends Controller
 {
-    public function userLogin(Request $request)
+    public function index()
     {
-        
-        $request->validate([
-            'courriel' => 'required|email',
-            'mot_de_passe' => 'required',
+        return Inertia::render('Login');
+    } 
+//
+    public function showRegistrationForm()
+    {
+        return inertia('Register');
+    }
+
+    public function register(Request $request)
+    {
+        $validated = $request->validate([
+            'prenom' => 'required|string|max:255',
+            'nom' => 'required|string|max:255',
+            'courriel' => 'required|string|email|max:255|unique:utilisateurs',
+            'mot_de_passe' => 'required|string|min:8|confirmed',
         ]);
 
-        // Verifica se o usuário existe
-        $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
+        $utilisateur = Utilisateur::create([
+            'prenom' => $validated['prenom'],
+            'nom' => $validated['nom'],
+            'courriel' => $validated['courriel'],
+            'mot_de_passe' => Hash::make($validated['mot_de_passe']),
+        ]);
 
-        if (!$loginUser) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Email and Password do not match',
-                'data' => []
-            ]);
-        }
+        return redirect()->route('login')->with('success', 'Votre compte a été créé avec succès. Veuillez vous connecter.');
+    }
+//    
+public function userLogin(Request $request)
+{
+    $request->validate([
+        'courriel' => 'required|email',
+        'mot_de_passe' => 'required',
+    ]);
 
-        // Verifica se a senha está correta
-        if (Hash::check($request->mot_de_passe, $loginUser->mot_de_passe)) {
-            // Cria um token para o usuário :)
-            $token = $loginUser->createToken('mytoken')->plainTextToken;
+    // Verifica se o usuário existe
+    $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
 
-            return response()->json([
-                'status' => true,
-                'message' => 'Utilisateur logged in',
-                'token' => $token,
-                'data' => []
-            ]);
-        } else {
-            return response()->json([
-                'status' => false,
-                'message' => 'Password Invalid',
-                'data' => []
-            ]);
- }
+    if (!$loginUser) {
+        return response()->json([
+            'status' => false,
+            'message' => 'Email e senha não correspondem',
+            'data' => []
+        ], 401);
+    }
+
+    // test sna hash
+    if ($request->mot_de_passe == $loginUser->mot_de_passe) {
+        $token = 'dummy_token';
+        
+        return response()->json([
+            'status' => true,
+            'message' => 'Usuário conectado',
+            'token' => $token,
+            'data' => []
+        ]);
+    } else {
+        return response()->json([
+            'status' => false,
+            'message' => 'Senha inválida',
+            'data' => []
+        ], 401);
 }
+}
+
 }

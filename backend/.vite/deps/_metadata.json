@@ -1,0 +1,58 @@
+{
+  "hash": "21f56d31",
+  "configHash": "11814457",
+  "lockfileHash": "8512c67f",
+  "browserHash": "70110e34",
+  "optimized": {
+    "@inertiajs/react": {
+      "src": "../../node_modules/@inertiajs/react/dist/index.esm.js",
+      "file": "@inertiajs_react.js",
+      "fileHash": "da07b561",
+      "needsInterop": false
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "2fb6ef04",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "9c8922e9",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "70e9c2cf",
+      "needsInterop": true
+    },
+    "@inertiajs/inertia-react": {
+      "src": "../../node_modules/@inertiajs/inertia-react/dist/index.js",
+      "file": "@inertiajs_inertia-react.js",
+      "fileHash": "31d33570",
+      "needsInterop": true
+    },
+    "react-slick": {
+      "src": "../../node_modules/react-slick/lib/index.js",
+      "file": "react-slick.js",
+      "fileHash": "c6f38e6a",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-LAGEYWQV": {
+      "file": "chunk-LAGEYWQV.js"
+    },
+    "chunk-MOBYBDLD": {
+      "file": "chunk-MOBYBDLD.js"
+    },
+    "chunk-65KY755N": {
+      "file": "chunk-65KY755N.js"
+    },
+    "chunk-V4OQ3NZ2": {
+      "file": "chunk-V4OQ3NZ2.js"
+    }
+  }
+}
