@@ -6,6 +6,7 @@ use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
+use App\Http\Requests\CreateUtilisateurRequest;
 class AuthController extends Controller
 {
     public function index()
@@ -21,37 +22,41 @@ class AuthController extends Controller
     {
         return inertia('Auth/Register');
     }
-
-    public function register(Request $request)
-    {
-        $validated = $request->validate([
-            'prenom' => 'required|string|max:255',
-            'nom' => 'required|string|max:255',
-            'courriel' => 'required|string|email|max:255|unique:utilisateurs',
-            'mot_de_passe' => 'required|string|min:8|confirmed',
-        ]);
-
-        $utilisateur = Utilisateur::create([
-            'prenom' => $validated['prenom'],
-            'nom' => $validated['nom'],
-            'courriel' => $validated['courriel'],
-            'mot_de_passe' => Hash::make($validated['mot_de_passe']),
-        ]);
-
-        return redirect()->route('login')->with('success', 'Votre compte a été créé avec succès. Veuillez vous connecter.');
-    }
-//
-
-
-
     
-    public function userLogin(Request $request)
+    public function register(CreateUtilisateurRequest $request)
     {
-        
+        $validated = $request->validated();
+
+        $validated['mot_de_passe'] = Hash::make($validated['mot_de_passe']);
+
+        $utilisateur = Utilisateur::create($validated);
+
+        return Inertia::location(route('login.index'));
+    }   
+    
+//    
+public function userLogin(Request $request)
+    {
+
         $request->validate([
             'courriel' => 'required|email',
             'mot_de_passe' => 'required',
         ]);
+
+        // Verifica se o usuário existe
+        $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
+
+        if (!$loginUser) {
+            return Inertia::location(route('login.index'));
+        }
+           if (Hash::check($request->mot_de_passe, $loginUser->mot_de_passe)) {
+            $token = $loginUser->createToken('mytoken')->plainTextToken;
+
+            return Inertia::location(route('Accueil'));
+        } else {
+            return Inertia::location(route('login.index'));
+ }
+}
 
         // Verifica se o usuário existe
         $loginUser = Utilisateur::where('courriel', $request->courriel)->first();

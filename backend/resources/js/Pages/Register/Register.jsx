@@ -1,31 +1,37 @@
 import React from 'react';
 import './Register.css';
+import { useForm } from '@inertiajs/inertia-react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { useForm } from '@inertiajs/inertia-react';
+import './Register.css';
 
 const Register = () => {
     const { data, setData, post, processing, errors } = useForm({
         prenom: '',
         nom: '',
-        jour: '',
-        mois: '',
-        annee: '',
+
+        date_naissance: '',
         adresse: '',
         code_postal: '',
-        telephone: '',
+        numero_telephone: '',
+        numero_portable: '',
         courriel: '',
+        privileges_id: 1,  // to do | doit etre dynamique, par default user
         nom_utilisateur: '',
         mot_de_passe: '',
-        mot_de_passe_confirmation: '',
+        villes_id_ville: 1, // to do | doit etre dynamique
     });
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         post('/register', {
+            data,
             onSuccess: () => {
                 console.log('Utilisateur inscrit avec succès!');
+            },
+            onError: (errors) => {
+                console.error('Erreur lors de l\'inscription', errors);
             },
         });
     };
@@ -39,18 +45,24 @@ const Register = () => {
                 <p>Accédez rapidement à toutes vos informations enregistrées depuis n'importe quel appareil, à tout moment. </p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label>Prénom</label>
+                       <label htmlFor="prenom">Prénom</label>
+
                         <input
                             type="text"
+                            name="prenom"
+                            id="prenom"
                             value={data.prenom}
                             onChange={(e) => setData('prenom', e.target.value)}
                         />
                         {errors.prenom && <span className="error">{errors.prenom}</span>}
                     </div>
                     <div className="form-group">
-                        <label>Nom</label>
+                        <label htmlFor="nom">Nom</label>
+
                         <input
                             type="text"
+                            name="nom"
+                            id="nom"
                             value={data.nom}
                             onChange={(e) => setData('nom', e.target.value)}
                         />
@@ -83,13 +95,15 @@ const Register = () => {
                         <label>Adresse</label>
                         <input
                             type="text"
+
                             value={data.adresse}
                             onChange={(e) => setData('adresse', e.target.value)}
                         />
                         {errors.adresse && <span className="error">{errors.adresse}</span>}
                     </div>
+
                     <div className="form-group">
-                        <label>Code postal</label>
+                         <label htmlFor="code_postal">Code postal</label>
                         <input
                             type="text"
                             value={data.code_postal}
@@ -97,6 +111,7 @@ const Register = () => {
                         />
                         {errors.code_postal && <span className="error">{errors.code_postal}</span>}
                     </div>
+
                     <div className="form-group">
                         <label>Numéro de téléphone</label>
                         <input
@@ -108,13 +123,17 @@ const Register = () => {
                     </div>
                     <div className="form-group">
                         <label>Courriel</label>
+
                         <input
                             type="email"
+                            name="courriel"
+                            id="courriel"
                             value={data.courriel}
                             onChange={(e) => setData('courriel', e.target.value)}
                         />
                         {errors.courriel && <span className="error">{errors.courriel}</span>}
                     </div>
+
                     <div className="form-group">
                         <label>Nom d'utilisateur</label>
                         <input
@@ -126,21 +145,27 @@ const Register = () => {
                     </div>
                     <div className="form-group">
                         <label>Mot de passe</label>
+
+                        <input
+                            type="text"
+                            name="nom_utilisateur"
+                            id="nom_utilisateur"
+                            value={data.nom_utilisateur}
+                            onChange={(e) => setData('nom_utilisateur', e.target.value)}
+                        />
+                        {errors.nom_utilisateur && <span className="error">{errors.nom_utilisateur}</span>}
+                    </div>
+                    <div className="form-group">
+                        <label>Confirmer votre mot de passe</label>
+
                         <input
                             type="password"
+                            name="mot_de_passe"
+                            id="mot_de_passe"
                             value={data.mot_de_passe}
                             onChange={(e) => setData('mot_de_passe', e.target.value)}
                         />
                         {errors.mot_de_passe && <span className="error">{errors.mot_de_passe}</span>}
-                    </div>
-                    <div className="form-group">
-                        <label>Confirmer votre mot de passe</label>
-                        <input
-                            type="password"
-                            value={data.mot_de_passe_confirmation}
-                            onChange={(e) => setData('mot_de_passe_confirmation', e.target.value)}
-                        />
-                        {errors.mot_de_passe_confirmation && <span className="error">{errors.mot_de_passe_confirmation}</span>}
                     </div>
                     <button type="submit" disabled={processing}>
                         S'inscrire
