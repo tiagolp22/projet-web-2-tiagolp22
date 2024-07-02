@@ -33,40 +33,26 @@ class AuthController extends Controller
     
 //    
 public function userLogin(Request $request)
-{
-    $request->validate([
-        'courriel' => 'required|email',
-        'mot_de_passe' => 'required',
-    ]);
+    {
 
-    // Verifica se o usuário existe
-    $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
-
-    if (!$loginUser) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Email e senha não correspondem',
-            'data' => []
-        ], 401);
-    }
-
-    // test sna hash
-    if ($request->mot_de_passe == $loginUser->mot_de_passe) {
-        $token = 'dummy_token';
-        
-        return response()->json([
-            'status' => true,
-            'message' => 'Usuário conectado',
-            'token' => $token,
-            'data' => []
+        $request->validate([
+            'courriel' => 'required|email',
+            'mot_de_passe' => 'required',
         ]);
-    } else {
-        return response()->json([
-            'status' => false,
-            'message' => 'Senha inválida',
-            'data' => []
-        ], 401);
-}
+
+        // Verifica se o usuário existe
+        $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
+
+        if (!$loginUser) {
+            return Inertia::location(route('login.index'));
+        }
+           if (Hash::check($request->mot_de_passe, $loginUser->mot_de_passe)) {
+            $token = $loginUser->createToken('mytoken')->plainTextToken;
+
+            return Inertia::location(route('Accueil'));
+        } else {
+            return Inertia::location(route('login.index'));
+ }
 }
 
 }
