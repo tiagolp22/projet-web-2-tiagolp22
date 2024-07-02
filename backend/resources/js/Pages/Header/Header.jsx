@@ -19,7 +19,7 @@ function Header() {
           </Link>
           <nav className="nav-links">
             <Link href="/" className="nav-link">Accueil</Link>
-            <Link href="/catalog" className="nav-link">Catalogue</Link>
+            <Link href="/voitures" className="nav-link">Catalogue</Link>
             <Link href="/about" className="nav-link">À propos</Link>
             <Link href="/contact" className="nav-link">Nous contacter</Link>
             <div className="icones">
