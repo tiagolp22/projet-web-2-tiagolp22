@@ -8,7 +8,7 @@ function Header() {
       <div className="wrapper">
         <div className="header-content">
           <Link href="/" className="logo">
-            <img className="logo" src="../../img/logo/logo.png" alt="QuebeCar" />
+            <img className="logo" src="../../img/logo/logo.png" alt="Logo QuebeCar" />
           </Link>
           <nav className="nav-links">
             <Link href="/" className="nav-link">Accueil</Link>
