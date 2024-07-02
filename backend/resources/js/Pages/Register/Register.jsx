@@ -36,7 +36,7 @@ const Register = () => {
             <div className="register-form">
                 <img className='logo_formulaire' src="../../img/logo/logo.png" alt="Logo" />
                 <h3 className='h3'>Créer votre compte</h3>
-                <p>Accédez rapidement à toutes vos informations enregistrées depuis n'importe quel appareil, à tout moment.</p>
+                <p>Accédez rapidement à toutes vos informations enregistrées depuis n'importe quel appareil, à tout moment. </p>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label>Prénom</label>
