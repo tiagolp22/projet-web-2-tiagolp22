@@ -12,10 +12,14 @@ class AuthController extends Controller
     {
         return Inertia::render('Login');
     } 
+
+    
+
+
 //
     public function showRegistrationForm()
     {
-        return inertia('Register');
+        return inertia('Auth/Register');
     }
 
     public function register(Request $request)
@@ -36,42 +40,47 @@ class AuthController extends Controller
 
         return redirect()->route('login')->with('success', 'Votre compte a été créé avec succès. Veuillez vous connecter.');
     }
-//    
-public function userLogin(Request $request)
-{
-    $request->validate([
-        'courriel' => 'required|email',
-        'mot_de_passe' => 'required',
-    ]);
+//
 
-    // Verifica se o usuário existe
-    $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
 
-    if (!$loginUser) {
-        return response()->json([
-            'status' => false,
-            'message' => 'Email e senha não correspondem',
-            'data' => []
-        ], 401);
-    }
 
-    // test sna hash
-    if ($request->mot_de_passe == $loginUser->mot_de_passe) {
-        $token = 'dummy_token';
+    
+    public function userLogin(Request $request)
+    {
         
-        return response()->json([
-            'status' => true,
-            'message' => 'Usuário conectado',
-            'token' => $token,
-            'data' => []
+        $request->validate([
+            'courriel' => 'required|email',
+            'mot_de_passe' => 'required',
         ]);
-    } else {
-        return response()->json([
-            'status' => false,
-            'message' => 'Senha inválida',
-            'data' => []
-        ], 401);
-}
-}
 
+        // Verifica se o usuário existe
+        $loginUser = Utilisateur::where('courriel', $request->courriel)->first();
+
+        if (!$loginUser) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Email and Password do not match',
+                'data' => []
+            ]);
+        }
+
+        // Verifica se a senha está correta
+        if (Hash::check($request->mot_de_passe, $loginUser->mot_de_passe)) {
+            // Cria um token para o usuário :)
+            $token = $loginUser->createToken('mytoken')->plainTextToken;
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Utilisateur logged in',
+                'token' => $token,
+                'data' => []
+            ]);
+        } else {
+            return response()->json([
+                'status' => false,
+                'message' => 'Password Invalid',
+                'data' => []
+            ]);
+ }
+}
 }
