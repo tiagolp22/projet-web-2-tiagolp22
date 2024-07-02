@@ -31,7 +31,7 @@ function Header() {
                   <img className="icones_navigation" src="../../img/icones/Profil.png" alt="" />
                 </button>
                 <div className="dropdown-content">
-                  <Link href="/login" className="nav-link">Connexion</Link>
+                <button onClick={openModal} className="nav-link">Connexion</button> 
                   <Link href="/register" className="nav-link">Inscription</Link>
                 </div>
               </div>
