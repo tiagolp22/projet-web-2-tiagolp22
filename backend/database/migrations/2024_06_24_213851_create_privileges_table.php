@@ -6,21 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('privileges', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_privilege');
+            $table->json('nom_privilege');
+            $table->json('description')->nullable();
+            $table->unique('nom_privilege');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('privileges');
     }
