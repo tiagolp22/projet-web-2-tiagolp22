@@ -35,16 +35,10 @@ function Home() {
   return (
     <>
       <Header />
+      <img  className="banner" src="../../../img/banner/banner.jpg" alt="bannière" srcset="" />
       <div className="wrapper">
         <div className="container">
-          {/* Section de la bannière */}
-          <img src="../../../img/banner/banner.jpg" alt="bannière" srcset="" />
-          <div className="banner">
-            <InertiaLink href="/catalog" className="catalog-link">
-              Voir le catalogue
-            </InertiaLink>
-          </div>
-          {/* Section du carrousel */}
+          
           <div className="carousel">
             <h2 className='Nouveautes'>Nouveautés</h2>
             <Slider {...settings}>
@@ -67,6 +61,7 @@ function Home() {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );
