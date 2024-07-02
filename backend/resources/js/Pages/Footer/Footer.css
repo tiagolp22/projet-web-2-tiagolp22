@@ -2,10 +2,10 @@ footer {
     background-color: var(--color-white);
     color: var(--color-white);
     font-family: var(--font-primary);
-    padding: 0 6vw;
   }
 
   .footer-content {
+    padding: var(--space-small) 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     justify-items: center;
@@ -25,7 +25,7 @@ footer {
   }
 
   .footer-text {
-    padding: var(--space-small);
+    padding: var(--space-small) 6vw;
     background-color: var(--color-primary);
     margin-top: var(--space-medium);
   }

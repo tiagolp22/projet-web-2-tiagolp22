@@ -4,7 +4,9 @@ import './Footer.css';
 
 function Footer() {
   return (
+    
     <footer className="footer">
+      <div className="wrapper">
       <div className="footer-content">
          <div className="footer-column">
              <img className='logo' src="../../../img/logo/logo.png" alt="logo"  />
@@ -27,6 +29,7 @@ function Footer() {
           <InertiaLink href="/team" className="footer-link">Équipe</InertiaLink>
           <InertiaLink href="/contact" className="footer-link">Nous contacter</InertiaLink>
         </div>
+      </div>
       </div>
       <div className="footer-text">
         &copy; 2024 QuebeCar. Tous droits réservés.
