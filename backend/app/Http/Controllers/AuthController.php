@@ -17,25 +17,43 @@ class AuthController extends Controller
     {
         return inertia('Register');
     }
-
+    
     public function register(Request $request)
     {
         $validated = $request->validate([
-            'prenom' => 'required|string|max:255',
-            'nom' => 'required|string|max:255',
-            'courriel' => 'required|string|email|max:255|unique:utilisateurs',
-            'mot_de_passe' => 'required|string|min:8|confirmed',
+            'prenom' => 'required|string|max:50',
+            'nom' => 'required|string|max:50',
+            'date_naissance' => 'required|date',
+            'adresse' => 'required|string|max:255',
+            'code_postal' => 'required|string|max:10',
+            'numero_telephone' => 'required|string|max:20',
+            'numero_portable' => 'nullable|string|max:20',
+            'courriel' => 'required|string|email|max:100|unique:utilisateurs',
+            'privileges_id' => 'required|integer',
+            'nom_utilisateur' => 'required|string|max:50|unique:utilisateurs',
+            'mot_de_passe' => 'required|string|min:8',
+            'villes_id_ville' => 'required|integer', 
         ]);
-
+    
+       
         $utilisateur = Utilisateur::create([
             'prenom' => $validated['prenom'],
             'nom' => $validated['nom'],
+            'date_naissance' => $validated['date_naissance'],
+            'adresse' => $validated['adresse'],
+            'code_postal' => $validated['code_postal'],
+            'numero_telephone' => $validated['numero_telephone'],
+            'numero_portable' => $validated['numero_portable'],
             'courriel' => $validated['courriel'],
+            'privileges_id' => $validated['privileges_id'],
+            'nom_utilisateur' => $validated['nom_utilisateur'],
             'mot_de_passe' => Hash::make($validated['mot_de_passe']),
+            'villes_id_ville' => $validated['villes_id_ville'],
         ]);
-
-        return redirect()->route('login')->with('success', 'Votre compte a été créé avec succès. Veuillez vous connecter.');
+    
+        return Inertia::location(route('login.index'));
     }
+    
 //    
 public function userLogin(Request $request)
 {
