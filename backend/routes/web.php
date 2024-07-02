@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoitureController;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use Inertia\Inertia;
 use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
@@ -15,7 +16,7 @@ use Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful;
 */
 
 // Route public 
-Route::get('/', [VoitureController::class, 'index'])->name('Accueil');
+Route::get('/', [HomeController::class, 'index'])->name('Accueil');
 Route::get('/voitures', [VoitureController::class, 'index'])->name('voitures.index');
 // Routes pour les pages statiques 
 Route::get('/contact', function () {
