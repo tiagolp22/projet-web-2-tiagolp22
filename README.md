@@ -52,7 +52,7 @@ QuebeCar is designed to streamline the process of buying and selling cars, provi
 ### Project Management:
 
 - Agile (Backlog and Sprints)
-- Jira(scrum)
+- Jira(scrum): https://tiagolp22.atlassian.net/jira/software/projects/SFA/boards/2/backlog
 
 ## Team:
 
