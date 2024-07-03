@@ -68,6 +68,7 @@ const Register = () => {
                         <label htmlFor="date_naissance">Date de naissance</label>
                         <input
                             type="date"
+                            className='date_naissance'
                             name="date_naissance"
                             id="date_naissance"
                             value={data.date_naissance}

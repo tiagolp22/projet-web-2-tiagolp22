@@ -1,11 +1,14 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { useTranslation } from 'react-i18next';
 import { InertiaLink } from '@inertiajs/inertia-react';
 import './Home.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function Home() {
+  const { t } = useTranslation();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -35,12 +38,11 @@ function Home() {
   return (
     <>
       <Header />
-      <img  className="banner" src="../../../img/banner/banner.jpg" alt="bannière" srcset="" />
+      <img className="banner" src="../../../img/banner/banner.jpg" alt="bannière" />
       <div className="wrapper">
         <div className="container">
-          
           <div className="carousel">
-            <h2 className='Nouveautes'>Nouveautés</h2>
+            <h2 className='Nouveautes'>Nouveautes</h2>
             <Slider {...settings}>
               <div className="slide">
                 <img src="https://via.placeholder.com/150" alt="Voiture" />
@@ -61,7 +63,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       <Footer />
     </>
   );
