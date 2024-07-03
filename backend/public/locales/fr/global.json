@@ -1,10 +1,50 @@
 {
     "header": {
-      "home": "Accueil",
-      "catalogue": "Catalogue",
-      "about": "À propos",
-      "contact": "Nous contacter",
-      "login": "Connexion",
-      "register": "Inscription"
+        "home": "Accueil",
+        "catalogue": "Catalogue",
+        "about": "À propos",
+        "contact": "Nous contacter",
+        "login": "Connexion",
+        "register": "Inscription"
+    },
+    "login": {
+        "title": "Connexion",
+        "email": "Courriel",
+        "password": "Mot de passe",
+        "login_button": "Connexion",
+        "login_with_google": "Se connecter avec Google",
+        "login_with_facebook": "Se connecter avec Facebook",
+        "no_account": "Pas de compte?",
+        "create_account": "Créer un compte"
+    },
+    "register": {
+        "title": "Créer votre compte",
+        "subtitle": "Accédez rapidement à toutes vos informations enregistrées depuis n'importe quel appareil, à tout moment.",
+        "first_name": "Prénom",
+        "last_name": "Nom",
+        "birthdate": "Date de naissance",
+        "address": "Adresse",
+        "postal_code": "Code postal",
+        "phone": "Numéro de téléphone",
+        "mobile": "Numéro de portable",
+        "email": "Courriel",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe",
+        "register_button": "S'inscrire"
+    },
+    "footer": {
+        "search": "Rechercher",
+        "suv": "VUS",
+        "trucks": "Camions",
+        "cars": "Voitures",
+        "good_to_know": "Bon à savoir",
+        "faq": "FAQ",
+        "tips": "Conseils",
+        "guides": "Guides",
+        "about": "À propos",
+        "our_story": "Notre histoire",
+        "team": "Équipe",
+        "contact_us": "Nous contacter",
+        "rights_reserved": "Tous droits réservés."
     }
-  }
+}
