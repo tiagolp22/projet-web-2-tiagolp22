@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('nombre_portes');
             $table->integer('nombre_places');
             $table->integer('kilometrage');
-            $table->text('description')->nullable();
+            $table->json('description');
             $table->json('etat_vehicule');
             $table->foreignId('commandes_id_commande')->nullable()->constrained('commandes', 'id_commande');
         });
