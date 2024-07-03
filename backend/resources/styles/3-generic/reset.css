@@ -25,8 +25,8 @@ p {
 
 a,
 a:focus,
-a:hover,
-a:visited {
+a:hover
+ {
     color: var(--color-primary);
     text-decoration: none;
 }
