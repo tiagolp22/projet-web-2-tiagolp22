@@ -19,11 +19,14 @@ function Header() {
 
   return (
     <header className="custom-header">
-      <div className="wrapper">
-        <div className="header-content">
+    <div className="wrapper">
+      <div className="header-content">
+        <div className="logo-section">
           <Link href="/" className="logo">
             <img className="logo" src="../../img/logo/logo.png" alt="Logo QuebeCar" />
           </Link>
+        </div>
+        <div className="nav-section">
           <nav className="nav-links">
             <Link href="/" className="nav-link">{t('header.home')}</Link>
             <Link href="/voitures" className="nav-link">{t('header.catalogue')}</Link>
@@ -48,13 +51,17 @@ function Header() {
               <button className="language-button" onClick={() => changeLanguage('fr')} aria-label="Français">
                 <img className="icones_navigation" src={i18n.language === 'fr' ? "../../img/icones/France_active.png" : "../../img/icones/France.png"} alt="" />
               </button>
+
             </div>
-          </nav>
+            <Link href="/login">
+              <img className="icones_navigation" src="../../img/icones/Canada.png" alt="Drapeua do Canada" />
+            </Link>
+          </div>
         </div>
       </div>
-
       {showModal && <LoginModal onClose={() => setShowModal(false)} />} {/* Affiche le modal si showModal est true */}
     </header>
+
   );
 }
 
