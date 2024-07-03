@@ -1,0 +1,10 @@
+{
+    "header": {
+      "home": "Accueil",
+      "catalogue": "Catalogue",
+      "about": "À propos",
+      "contact": "Nous contacter",
+      "login": "Connexion",
+      "register": "Inscription"
+    }
+  }
